@@ -1,7 +1,8 @@
-import React, { Component } from "react";
+import * as React from "react";
 import ToDoList from "./components/ToDoList";
+import { IToDoList } from "./interfaces/IToDoList";
 
-class App extends Component {
+class App extends React.Component<IToDoList> {
   render() {
     return (
       <React.Fragment>
