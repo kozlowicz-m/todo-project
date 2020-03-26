@@ -1,45 +1,50 @@
-// import { shallow } from 'enzyme';
-// import * as React from 'react';
-//
-// import ToDoList from './ToDoList';
-//
-// let wrapper: any;
-// const props = {
-//     id: 2,
-//     input: "string",
-//     currentId: 2,
-// };
-//
-// describe('<toDoList />', () => {
-//
-//     it('renders correctly', () => {
-//         wrapper = shallow(<ToDoList {...props}/>);
-//
-//         expect(wrapper).toMatchSnapshot();
-//     });
-// });
+import { shallow } from 'enzyme';
+import React from 'react';
 
-import React from 'react'
-import { render, getByRole } from '@testing-library/react'
+import ToDoList from './ToDoList';
+import IToDoListState from '../interfaces/IToDoListState'
 
-import ToDoList  from './ToDoList'
-
-const props = {
+const commonProps = {
     id: 2,
     input: "string",
     currentId: 2,
-}
-test('Opens on button click', () => {
-    const ToDoListComponent = (
-        <>
-            <form>
-                <ToDoList {...props} />
-            </form>
-        </>
-    )
-    const { getByText } = render(ToDoListComponent)
-    const container = document.body
-    const diffNode = getByRole(container, 'toDoList')
+    list: [],
+    activeFilter: 'all'
+};
 
-    expect(diffNode).toBeTruthy()
-})
+describe('<ToDoList />', () => {
+
+    it('renders correctly', () => {
+       const wrapper = shallow(<ToDoList {...commonProps}/>);
+
+        expect(wrapper).toMatchSnapshot();
+    });
+
+    it('renders button - all', () => {
+        const props: IToDoListState = { ...commonProps };
+        props.activeFilter = 'all';
+
+        const wrapper = shallow(<ToDoList {...commonProps}/>);
+        expect(wrapper).toMatchSnapshot();
+    });
+
+    it('renders button - done', () => {
+        const props: IToDoListState = { ...commonProps };
+        props.activeFilter = 'done';
+
+        const wrapper = shallow(<ToDoList {...commonProps}/>);
+        expect(wrapper).toMatchSnapshot();
+    });
+
+    it('renders button - active', () => {
+        const props: IToDoListState = { ...commonProps };
+        props.activeFilter = 'active';
+
+        const wrapper = shallow(<ToDoList {...commonProps}/>);
+        expect(wrapper).toMatchSnapshot();
+    });
+
+
+});
+
+
