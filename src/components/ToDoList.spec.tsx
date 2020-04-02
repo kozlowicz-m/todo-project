@@ -1,8 +1,8 @@
+import React from "react";
 import { shallow } from 'enzyme';
-import React from 'react';
-
 import ToDoList from './ToDoList';
 import IToDoListState from '../interfaces/IToDoListState'
+
 
 const commonProps = {
     id: 2,
@@ -43,7 +43,6 @@ describe('<ToDoList />', () => {
         const wrapper = shallow(<ToDoList {...commonProps}/>);
         expect(wrapper).toMatchSnapshot();
     });
-
 
 });
 
