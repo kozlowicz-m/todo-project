@@ -1,11 +1,17 @@
 {
   "compilerOptions": {
+    "outDir": "./dist/",
+    "sourceMap": true,
+    "module": "commonjs",
     "target": "esnext",
+    "jsx": "react",
     "lib": [
       "dom",
       "dom.iterable",
       "esnext"
-    ],
+    ]
+  },
+
     "allowJs": true,
     "skipLibCheck": true,
     "esModuleInterop": true,
@@ -18,10 +24,10 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "noEmit": true,
-    "jsx": "react"
-  },
+    "jsx": "react",
+
   "include": [
-    "src"
+    "dist"
   ],
   "exclude": ["node_modules", "**/*.spec.ts"]
 }

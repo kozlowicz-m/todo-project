@@ -1,7 +1,7 @@
-import React from "react";
+import * as React from "react";
 import { shallow } from 'enzyme';
-import ToDoList from './ToDoList';
-import IToDoListState from '../interfaces/IToDoListState'
+import ToDoList from '../ToDoList';
+import { IToDoListState } from '../../interfaces/IToDoListState'
 
 
 const commonProps = {
